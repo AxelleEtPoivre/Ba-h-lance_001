@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BlockLogic : MonoBehaviour
 {
-
+    bool movable = true;
     float timer = 0f;
 
     // Start is called before the first frame update
@@ -16,10 +16,20 @@ public class BlockLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Update the timer
+        timer += 1 * Time.deltaTime;
+
         //Drop
-        if(timer > GameLogic.dropTime)
+        if(Input.GetKey(KeyCode.DownArrow) && timer > GameLogic.quickDropTime)
         {
             gameObject.transform.position -= new Vector3(0, 1, 0);
+            timer = 0;
+        }
+
+        else if(timer > GameLogic.dropTime)
+        {
+            gameObject.transform.position -= new Vector3(0, 1, 0);
+            timer = 0;
         }
            
         //Sideways
