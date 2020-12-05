@@ -14,7 +14,19 @@ public class BlockLogic : MonoBehaviour
     {
         
     }
-
+    bool CheckValid()
+    { 
+        foreach (Transform subBlock in collection in rig.transform)
+        {
+            if (suBlock.transform.position.x > GameLogic.width ||
+                suBlock.transform.position.x < 0 ||
+                suBlock.transform.position.y < 0)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
     // Update is called once per frame
     void Update()
     {
