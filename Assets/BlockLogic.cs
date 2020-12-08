@@ -16,11 +16,11 @@ public class BlockLogic : MonoBehaviour
     }
     bool CheckValid()
     { 
-        foreach (Transform subBlock in collection in rig.transform)
+        foreach (Transform subBlock in rig.transform)
         {
-            if (suBlock.transform.position.x > GameLogic.width ||
-                suBlock.transform.position.x < 0 ||
-                suBlock.transform.position.y < 0)
+            if (subBlock.transform.position.x > GameLogic.width ||
+                subBlock.transform.position.x < 0 ||
+                subBlock.transform.position.y < 0)
             {
                 return false;
             }
